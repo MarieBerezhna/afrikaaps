@@ -1,31 +1,26 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View, Button, Pressable } from 'react-native';
+import data from '../data.json';
 
-const levels = [
-    { label: 'A1' }, 
-    { label: 'A2' }, 
-    { label: 'B1' }, 
-    { label: 'B2' }, 
-    { label: 'C1' }, 
-    { label: 'C2' },
-];
+const levels = Object.keys(data);
 
 type LevelProps = {
     label: string;
+    onPress: any;
 };
-const Level = ({label} : LevelProps) => {
+const Level = ({label, onPress} : LevelProps) => {
     return (
-        <View style={styles.level}>
+        <Pressable onPress={onPress}>
+        <View style={styles.level}  >
             <Text style={styles.label}>{label}</Text>
-        </View>
+            </View>
+        </Pressable>
     )
 };
-const Levels = () => {
+const Levels = ({navigation }: any) => {
     return (
-
         <ScrollView style={styles.container} showsHorizontalScrollIndicator={false}>
-            <Text>Here we go 2</Text>
             {levels.map(d => {
-                return (<Level key={d.label} label={d.label}></Level>);
+                return (<Level onPress={() => navigation.navigate('Level', {id: d})} key={d} label={d}></Level>);
             })}
         </ScrollView>
     );
