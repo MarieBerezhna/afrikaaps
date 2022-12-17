@@ -1,14 +1,14 @@
-import { useState } from 'react';
-import { StyleSheet } from 'react-native';
 import Levels from './screens/Levels';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createNativeStackNavigator} from '@react-navigation/native-stack';
-const Stack = createNativeStackNavigator();
 import { Lessons } from './screens/Lessons';
+import Error from './screens/Error';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-     <NavigationContainer>
+    <NavigationContainer theme={CustomTheme}>
       <Stack.Navigator>
         <Stack.Screen name="Home" options={{ title: 'Levels' }} >
            {(props) => <Levels  {...props} />}
@@ -16,18 +16,19 @@ export default function App() {
         <Stack.Screen name="Level" options={{ title: 'Lessons' }} >
           {(props) => <Lessons  {...props} onPress={() => {}} />}
         </Stack.Screen>
+        <Stack.Screen name='Error' options={{ title: 'Oops!' }} >
+          {(props) => <Error  {...props} />}
+        </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 25,
-    paddingTop: 50,
+const CustomTheme = {
+  // ...DefaultTheme,
+  dark: true,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: 'rgb(0, 45, 85)',
   },
-});
+};
