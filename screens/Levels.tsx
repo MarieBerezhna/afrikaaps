@@ -1,5 +1,6 @@
 import { ScrollView, StyleSheet, Text, View, Pressable } from 'react-native';
 import data from '../data.json';
+import { styles } from '../kit/styles';
 
 const levels = Object.keys(data);
 
@@ -27,22 +28,3 @@ const Levels = ({navigation }: any) => {
 };
 
 export default Levels;
-
-const styles = StyleSheet.create({
-    container: {
-        width: '100%',
-        textAlign: 'center',
-    },
-    level: {
-        margin: 25,
-        padding: 100,
-        borderColor: '#ccc',
-        borderWidth: 5,
-        borderRadius: 25,
-        alignItems: 'center',
-        
-    },
-    label: {
-        fontSize: 50,
-    }
-});

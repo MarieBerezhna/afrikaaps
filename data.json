@@ -1,22 +1,26 @@
 {
-    "A1": {
-        "0": {
-            "hello": {
-                "content": "Hello",
-                "translation": "Hallo",
-                "options": [
-                    "Hallo", "Hello", "Hoola", "Heylo"
-                ]
+    "A1": [ 
+            {
+                "name": "hello",
+                "data": {
+                    "content": "Hello",
+                    "translation": "Hallo",
+                    "options": [
+                        "Hallo", "Hello", "Hoola", "Heylo"
+                    ]
+                }
             },
-            "hi": {
-                "content": "Hi",
-                "translation": "Haai",
-                "options": [
-                    "Hallo", "Hey", "Hi", "Helo"
-                ]
+            {
+                "name": "hi",
+                "data": {
+                    "content": "Hi",
+                    "translation": "Haai",
+                    "options": [
+                        "Hallo", "Hey", "Hi", "Helo"
+                    ]
+                }
             }
-        }
-    },
-    "A2": {},
-    "B1": {}
+    ],
+    "A2": [],
+    "B1": []
 }
